@@ -2,8 +2,8 @@ FROM ubuntu:bionic
 
 ADD json2yaml /usr/local/bin/json2yaml
 
-RUN apt-get update &&
-    apt-get install \
+RUN apt-get update && \
+    apt-get install -y \
         ca-certificates \
         groff \
         vim \
