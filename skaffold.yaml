@@ -1,0 +1,13 @@
+apiVersion: skaffold/v1beta11
+kind: Config
+build:
+  artifacts:
+  - image: ubuntu-base
+    context: .
+    docker:
+      network: host
+  tagPolicy:
+    envTemplate:
+      template: '{{.DOCKER_REGISTRY}}/ubuntu-base:{{.VERSION}}'
+  local: {}
+  

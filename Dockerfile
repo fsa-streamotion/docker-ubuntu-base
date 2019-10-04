@@ -2,7 +2,9 @@ FROM ubuntu:bionic
 
 ADD json2yaml /usr/local/bin/json2yaml
 
-RUN apt-get update && \
+RUN apt-get update && apt-get install -y software-properties-common && \
+    && apt-get install -y software-properties-common && \
+    apt-get update && apt-get -y  upgrade git && \    	
     apt-get install -y \
         ca-certificates \
         groff \
@@ -28,6 +30,7 @@ RUN apt-get update && \
          troposphere>=2.0.0 \
          awscli && \
     chmod +x /usr/local/bin/json2yaml
+
 
 
 RUN echo "export LC_ALL=C.UTF-8" >> /root/.bashrc && \
