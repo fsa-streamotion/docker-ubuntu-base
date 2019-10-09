@@ -1,8 +1,12 @@
 FROM ubuntu:bionic
 
 ADD json2yaml /usr/local/bin/json2yaml
+ENV TZ='Australia/Sydney'
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y software-properties-common && \
+#install tzdata package
+RUN echo $TZ > /etc/timezone && \
+    apt-get update && apt-get install -y software-properties-common && \
     apt-get install -y software-properties-common && \
     apt-get update && apt-get -y  upgrade git && \    	
     apt-get install -y \
