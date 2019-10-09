@@ -4,9 +4,9 @@ ADD json2yaml /usr/local/bin/json2yaml
 ENV TZ='Australia/Sydney'
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN echo $TZ > /etc/timezone
 #install tzdata package
-RUN echo $TZ > /etc/timezone && \
-    apt-get update && apt-get install -y software-properties-common && \
+RUN apt-get update && apt-get install -y software-properties-common && \
     apt-get install -y software-properties-common && \
     apt-get update && apt-get -y  upgrade git && \    	
     apt-get install -y \
@@ -30,12 +30,12 @@ RUN echo $TZ > /etc/timezone && \
         gettext \
         python3 \
         python3-pip \
-        tzdata && apt-get clean \
-    pip3 install --no-cache-dir --upgrade \
-         sceptre>=2.1.3 \
-         troposphere>=2.0.0 \
-         awscli && \
-    chmod +x /usr/local/bin/json2yaml
+        tzdata && apt-get clean && \
+        pip3 install --no-cache-dir --upgrade \
+        sceptre>=2.1.3 \
+        troposphere>=2.0.0 \
+        awscli && \
+        chmod +x /usr/local/bin/json2yaml
 
 
 RUN echo "export LC_ALL=C.UTF-8" >> /root/.bashrc && \
