@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y software-properties-common && \
     apt-get install -y software-properties-common && \
     apt-get update && apt-get -y  upgrade git && \    	
     apt-get install -y \
+        iputils-ping \
         openjdk-8-jdk \
         ca-certificates \
         groff \
