@@ -37,7 +37,8 @@ RUN apt-get update && \
         awscli==1.16.298 \
         aws-sam-cli==0.37.0 \
         sceptre==2.2.2 \
-        troposphere==2.5.3 && \
+        troposphere==2.5.3 \
+        cfn-flip==1.2.2 && \
     chmod +x /usr/local/bin/json2yaml
 
 RUN echo "export LC_ALL=C.UTF-8" >> /root/.bashrc && \
