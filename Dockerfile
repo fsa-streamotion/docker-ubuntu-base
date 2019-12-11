@@ -35,9 +35,10 @@ RUN apt-get update && \
         tzdata && \
     apt-get clean && \
     pip3 install --no-cache-dir --upgrade \
-        sceptre>=2.1.3 \
-        troposphere>=2.0.0 \
-        awscli && \
+        awscli==1.16.298 \
+        aws-sam-cli==0.37.0 \
+        sceptre==2.2.2 \
+        troposphere==2.5.3 && \
     chmod +x /usr/local/bin/json2yaml
 
 RUN echo "export LC_ALL=C.UTF-8" >> /root/.bashrc && \
