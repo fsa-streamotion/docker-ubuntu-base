@@ -31,6 +31,7 @@ RUN apt-get update && apt-get install -y software-properties-common && \
         gettext \
         python3 \
         python3-pip \
+	bash-completion \
         tzdata && apt-get clean && \
         pip3 install --no-cache-dir --upgrade \
         sceptre>=2.1.3 \
