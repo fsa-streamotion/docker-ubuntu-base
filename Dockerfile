@@ -1,15 +1,15 @@
 FROM ubuntu:bionic
 
 ADD json2yaml /usr/local/bin/json2yaml
-ENV TZ='Australia/Sydney'
 ENV DEBIAN_FRONTEND=noninteractive
 
+ENV TZ='Australia/Sydney'
 RUN echo $TZ > /etc/timezone
-#install tzdata package
-RUN apt-get update && apt-get install -y software-properties-common && \
-    apt-get install -y software-properties-common && \
-    apt-get update && apt-get -y  upgrade git && \    	
-    apt-get install -y \
+
+RUN apt-get update && \
+    apt-get -y install software-properties-common && \
+    apt-get -y upgrade git && \
+    apt-get -y install \
         iputils-ping \
         openjdk-8-jdk \
         ca-certificates \
@@ -31,14 +31,16 @@ RUN apt-get update && apt-get install -y software-properties-common && \
         gettext \
         python3 \
         python3-pip \
-	bash-completion \
-        tzdata && apt-get clean && \
-        pip3 install --no-cache-dir --upgrade \
-        sceptre>=2.1.3 \
-        troposphere>=2.0.0 \
-        awscli && \
-        chmod +x /usr/local/bin/json2yaml
-
+	      bash-completion \
+        tzdata && \
+    apt-get clean && \
+    pip3 install --no-cache-dir --upgrade \
+        awscli==1.16.298 \
+        aws-sam-cli==0.37.0 \
+        sceptre==2.2.1 \
+        troposphere==2.5.3 \
+        cfn-flip==1.2.2 && \
+    chmod +x /usr/local/bin/json2yaml
 
 RUN echo "export LC_ALL=C.UTF-8" >> /root/.bashrc && \
     echo "export LANG=C.UTF-8"   >> /root/.bashrc && \
@@ -55,6 +57,5 @@ RUN echo "export LC_ALL=C.UTF-8" >> /root/.bashrc && \
     git config --global alias.co checkout && \
     git config --global alias.br branch && \
     git config --global alias.st status
-
 
 WORKDIR /src
