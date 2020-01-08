@@ -37,7 +37,7 @@ RUN apt-get update && \
     pip3 install --no-cache-dir --upgrade \
         awscli==1.16.298 \
         aws-sam-cli==0.37.0 \
-        sceptre==2.2.2 \
+        sceptre==2.2.1 \
         troposphere==2.5.3 \
         cfn-flip==1.2.2 && \
     chmod +x /usr/local/bin/json2yaml
