@@ -35,7 +35,7 @@ RUN apt-get update && \
         tzdata && \
     apt-get clean && \
     pip3 install --no-cache-dir --upgrade \
-        awscli==1.16.298 \
+        awscli==1.17.8 \
         aws-sam-cli==0.37.0 \
         sceptre==2.2.1 \
         troposphere==2.5.3 \
