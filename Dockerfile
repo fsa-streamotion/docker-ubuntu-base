@@ -28,6 +28,7 @@ RUN apt-get update && \
         gcc \
         jq \
         tmux \
+        golang-cfssl \
         gettext \
         python3 \
         python3-pip \
