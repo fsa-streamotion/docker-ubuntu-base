@@ -11,6 +11,7 @@ RUN apt-get update && \
     apt-get -y upgrade git && \
     apt-get -y install \
         iputils-ping \
+	bind-tools curl wget nmap procps tcpdump busybox-extras mtr openssh-client postgresql-client mysql-client rsync jq git iputils lftp netcat-openbsd socat iproute2 net-tools bash perl-net-telnet iperf3 ethtool apache2-utils \
         openjdk-8-jdk \
         ca-certificates \
         groff \
