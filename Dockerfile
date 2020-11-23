@@ -39,9 +39,12 @@ RUN apt-get update && \
     pip3 install --no-cache-dir --upgrade \
         awscli==1.17.8 \
         aws-sam-cli==0.37.0 \
-        sceptre==2.2.1 \
+        sceptre==2.3.0 \
         troposphere==2.5.3 \
-        cfn-flip==1.2.2 && \
+        cfn-flip==1.2.2 \
+        colorama==0.3.9 \
+        boto3==1.14.47 \
+        botocore==1.17.47 \ &&
     chmod +x /usr/local/bin/json2yaml
 
 RUN echo "export LC_ALL=C.UTF-8" >> /root/.bashrc && \
